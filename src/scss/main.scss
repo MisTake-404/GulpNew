@@ -1,0 +1,33 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Main Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+/* Импортные CSS / SCSS файлы, плагины, модули */
+@import 'import/init.scss';
+
+/* Переменные */
+@import 'variables.scss';
+
+/* Миксины */
+@import 'mixins.scss';
+
+/* Обнуление стилей */
+@import 'preset.scss';
+
+/* Шрифты */
+@import 'fonts.scss';
+
+/* Типографика */
+@import 'typography.scss';
+
+/* Анимации */
+@import 'animations.scss';
+
+/* Компоненты */
+@import 'components/init.scss';
+
+/* Блоки */
+@import 'blocks/init.scss';
+
+/* Страницы */
+@import 'pages/init.scss';

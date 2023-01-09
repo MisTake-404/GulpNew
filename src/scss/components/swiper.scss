@@ -1,0 +1,44 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.swiper-container {
+  max-width: 100%;
+  grid-column: span 12;
+
+  .swiper-pagination-bullet {
+    height: 20px;
+    width: 20px;
+    background: #000;
+    opacity: 1;
+    margin: 0 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: red!important;
+  }
+
+  .swiper-slide {
+    padding-bottom: 60px;  /* fixed overflow */
+  }
+
+  .swiper-pagination {
+    bottom: 20px;
+    z-index: 10;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    margin-top: calc(-44px / 2); /* arrow navigation size */
+    top: calc(50% - (60px / 2)); /* fixed position (due to fixed overflow padding-bottom) */
+
+    &:after {
+      font-family: swiper-icons; /* icons-arrow */
+      /* background-image: url() */ /* custom icons */
+    }
+  }
+}

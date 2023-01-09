@@ -1,0 +1,29 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+// Components: ICON
+.icon {
+  $self: &;
+
+  &__svg,
+  &__path {
+    transition-property: fill, stroke;
+    transition-timing-function: linear;
+    transition-duration: $timeTrans;
+  }
+
+  &--nameicon {
+    #{ $self }__svg {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+
+      #{ $self }__path {
+        stroke: #000;
+      }
+    }
+  }
+}
+

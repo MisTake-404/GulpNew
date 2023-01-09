@@ -1,0 +1,43 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Components Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.btn {
+  $self: &;
+  @include flex-center;
+  @include transition-colors;
+  @include setText(16px, 24px, 700);
+
+  $btnBackground: #FFA101;
+  $btnTextColor: #000;
+  $btnBorderColor: #000;
+
+  $btnBackgroundHover: #FF7701;
+  $btnTextColorHover: #fff;
+  $btnBorderColorHover: #000;  
+  
+  background-color: $btnBackground;
+  color: $btnTextColor;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 56px;
+  max-height: 56px;
+  outline: none;
+  user-select: none;
+  border: 1px solid $btnBorderColor;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: $btnBackgroundHover;
+    color: $btnTextColorHover;    
+    border: 1px solid $btnBorderColorHover;
+  }
+
+  // Custom btn
+  &--nobg {
+    background-color: unset;
+  }
+}

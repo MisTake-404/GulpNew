@@ -1,0 +1,101 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.wrapper-select {
+  $self: &;
+
+  display: flex;
+  flex-direction: column;
+
+  $borderSelect: red;
+  $backgroundSelect: black;
+  $backgroundList: black;
+  $borderList: red;
+  $colorItemText: white;
+  $colorPlacehoder: white;
+  $backgroundItemHover: red;
+  $arrowWidth: 5px;
+  $arrowColor: red;
+
+  &__label {
+    @include setText(16px, 24px, 700);
+    margin-bottom: 16px;
+  }
+
+  .choices {
+    margin-top: auto;
+    
+    &__inner {
+      @include transition-colors;
+      padding-bottom: 0;
+      padding: 16px 16px;
+      max-height: 56px;
+      min-height: 56px;
+      border-radius: unset;
+      border: 1px solid $borderSelect;
+      background-color: $backgroundSelect;
+
+      &:hover,
+      &:focus {
+        background-color: green;
+      }
+    }
+  
+    &__list {
+      transition-property: visibility;
+      transition-timing-function: linear;
+      transition-duration: $timeTrans;          
+      padding: 0;
+    }
+  
+    &__list--dropdown,
+    &__list[aria-expanded] {
+      background-color: $backgroundList;
+      border: 1px solid $borderList;
+      border-bottom-left-radius: 2.5px;
+      border-bottom-right-radius: 2.5px;
+      
+      // &.is-active { }
+    }
+  
+    &__item {
+      @include transition-colors;
+      @include setText(16px, 24px, 400);
+      color: $colorItemText;
+    }
+  
+    &__placeholder {
+      @include setText(16px, 24px, 400);
+      color: $colorPlacehoder;
+      opacity: 1;
+    }
+  
+    .choices__item--selectable.is-highlighted, 
+    .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+      background-color: $backgroundItemHover;
+    }  
+  
+    .choices__list--dropdown .choices__item--selectable::after, 
+    .choices__list[aria-expanded] .choices__item--selectable::after {
+      color: $colorItemText;
+    }
+  }
+
+  .choices[data-type*=select-one] .choices__inner {
+    padding-bottom: 16px;
+  }  
+  
+  /* button arrow */
+  .choices[data-type*=select-one]::after {
+    right: 20px;
+    border-color: $arrowColor transparent transparent transparent;
+    margin-top: -2.5px;
+    border-width: $arrowWidth; 
+  }
+
+  .choices[data-type*=select-one].is-open::after {
+    border-color: transparent transparent $arrowColor transparent;
+    margin-top: -7.5px;
+  }
+}

@@ -1,0 +1,17 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Imported Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+/* Обнуление стилей */
+@import 'normalize.scss';
+
+/* Анимации */
+// @import 'animate.scss';
+
+/* Choises: select */
+@import '../../../node_modules/choices.js/src/styles/choices.scss';
+
+/* Slider: swiper */
+@import '../../../node_modules/swiper/swiper.scss';
+@import '../../../node_modules/swiper/modules/pagination/pagination.scss';
+@import '../../../node_modules/swiper/modules/navigation/navigation.scss';

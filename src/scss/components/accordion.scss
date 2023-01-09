@@ -1,0 +1,46 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.accordion {
+  .ac {
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .ac-header {
+      padding-bottom: 8px;
+      border-bottom: 2px solid #000;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      button {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .ac-panel {
+      opacity: 0;
+      padding: 0;
+    }
+  }
+
+  /*
+    Будет анимировать всё, включая padding
+    Если необходимо убрать анимацию, то нужно поместить внутрь ac-panel
+    div элемент, и уже ему задать margin или padding
+  */
+  .ac.is-active {
+    .ac-panel {
+      opacity: 1;
+      height: 80px!important;
+      padding: 16px 16px;
+    }
+  }
+}

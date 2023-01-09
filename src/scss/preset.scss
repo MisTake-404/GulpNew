@@ -1,0 +1,83 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Preset Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+
+// Components MAIN
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	font-size: 10px;
+	font-family: $mainFamily;
+	font-style: normal;	
+	color: $mainText;
+	font-weight: 400;
+}
+
+html,
+body {
+	background: $mainBackground;
+}
+
+body {
+	overflow-y: scroll;
+	scroll-behavior: smooth;	
+}
+
+.img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+ul {
+	list-style: none;
+}
+
+dl, 
+ol, 
+ul, 
+a, 
+p, 
+span, 
+div, 
+img, 
+nav, 
+header, 
+footer,
+button,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+textarea {
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul {
+	padding-left: 0;
+}
+
+input,
+textarea,
+button {
+	box-sizing: border-box;
+	border: none;
+	outline: none;
+	background: none;
+	display: block;
+
+	&::placehloder {
+		box-sizing: border-box;
+	}
+}
+
+textarea {
+	resize: none;
+}

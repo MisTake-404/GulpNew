@@ -1,0 +1,301 @@
+@@include('html/header.html', {
+  "title": "Примеры"
+})
+  <style>
+    body {
+      padding: 100px 0;
+    }
+    .test-title {
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 700;
+      color: #000;
+      text-align: center;
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <!-- MODAL -->      
+  <div class="modal" data-modal="test" tabindex="-1">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog">
+      <div class="modal__close">
+        <i class="icon modal__icon modal__icon--close">
+          <svg class="icon__svg modal__svg" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="icon__path modal__path" d="M1.4 1L21.4 21" stroke-width="2" stroke-linecap="round" />
+            <path class="icon__path modal__path" d="M21 1L0.999998 21" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </i>
+      </div>
+      <div class="modal__content modal__content--size"></div>
+    </div>
+  </div>  
+  <!-- PRELOADER -->
+  @@include('html/components/preloader.html', {})
+  <!-- TESTING GRID -->
+  <!--@@include('html/components/testgrid.html', {})-->
+  <!-- GRID -->
+  <div class="test-title" id="link1">Элементы сетки</div>
+  <div class="container">
+    <div class="grid">
+      <div class="grid__wrapper">
+        <div class="element-one" style="grid-column: span 4; height: 120px; background-color: green;"></div>
+        <div class="element-two" style="grid-column: span 3; height: 120px; background-color: red;"></div>
+      </div>
+    </div>
+  </div>
+  <!-- IMAGES @img -->
+  <img src="@img/logo.png" alt="">
+  <div class="test-title">Элементы Типографики</div>
+  <div class="container">
+    <div class="grid">
+      <div class="grid__full-column">
+        <h1>Заголовок 1 уровня</h1>
+        <h2>Заголовок 2 уровня</h2>
+        <h3>Заголовок 3 уровня</h3>
+        <h4>Заголовок 4 уровня</h4>
+        <h5>Заголовок 5 уровня</h5>
+        <h6>Заголовок 6 уровня</h6>
+        <p>Обычный текст</p>
+        <span>Вспомогательный текст</span>
+        <strong>Жирный текст</strong>
+        <a href="#">Ссылка</a>
+      </div>
+      <!-- CHECKBOX -->
+      <div class="grid__full-column">
+        <div class="test-title">Checkboxes</div>
+      </div>
+      <div class="grid__wrapper">
+        @@include('html/components/checkbox.html', {
+          index: 'check1',
+          name: 'checkbox1',
+          label: 'Checkbox1'
+        })
+        <div class="wrapper-checkbox">
+          <input class="wrapper-checkbox__checkbox" type="checkbox" id="check2" name="checkbox2" />
+          <label class="wrapper-checkbox__label" for="check2">Checkbox2</label>
+        </div>  
+        <div class="wrapper-checkbox">
+          <input class="wrapper-checkbox__checkbox" type="checkbox" id="check3" name="checkbox3" />
+          <label class="wrapper-checkbox__label" for="check3">Checkbox3</label>
+        </div>                
+      </div>
+      <!-- RADIOES -->
+      <div class="grid__full-column" id="link2">
+        <div class="test-title">Radioes</div>
+      </div>
+      <div class="grid__wrapper">
+        @@include('html/components/radio.html', {
+          index: 'radio1',
+          name: 'radioes',
+          label: 'Radio1'
+        })
+        <div class="wrapper-radio">
+          <input class="wrapper-radio__radio" type="radio" id="radio2" name="radioes" />
+          <label class="wrapper-radio__label" for="radio2">Radio2</label>
+        </div>  
+        <div class="wrapper-radio">
+          <input class="wrapper-radio__radio" type="radio" id="radio3" name="radioes" />
+          <label class="wrapper-radio__label" for="radio3">Radio3</label>
+        </div>                
+      </div>    
+      <!-- SELECT -->
+      <div class="grid__full-column">
+        <div class="test-title">Selects</div>
+      </div> 
+      <div class="grid__wrapper">
+        <div class="wrapper-select" style="grid-column: span 4">
+          <div class="wrapper-select__label">Какой-то select</div>
+          <select class="wrapper-select__select" name="select1">
+            <option value="title">Заголовок</option>
+            <option value="punkt1">Пункт 1</option>
+            <option value="punkt2">Пункт 2</option>
+            <option value="punkt3">Пункт 3</option>
+          </select>          
+        </div>
+        <div class="wrapper-select" style="grid-column: span 4" name="select2">
+          <select class="wrapper-select__select">
+            <option value="title">Заголовок</option>
+            <option value="punkt1">Пункт 1</option>
+            <option value="punkt2">Пункт 2</option>
+            <option value="punkt3">Пункт 3</option>
+          </select>          
+        </div> 
+        <div class="wrapper-select" style="grid-column: span 4" name="select3">
+          <select class="wrapper-select__select">
+            <option value="title">Заголовок</option>
+            <option value="punkt1">Пункт 1</option>
+            <option value="punkt2">Пункт 2</option>
+            <option value="punkt3">Пункт 3</option>
+          </select>          
+        </div>        
+      </div>
+      <!-- INPUTS AND INPUTMASK --> 
+      <div class="grid__full-column" id="link3">
+        <div class="test-title">Inputs and Mask</div>
+      </div> 
+      <div class="grid__wrapper">
+        <div class="wrapper-input" style="grid-column: span 4">
+          <div class="wrapper-input__label">Введите телефон</div>
+          <input class="wrapper-input__input input-phone" type="phone" placeholder="Текст" name="firstname">
+          <div class="wrapper-input__error">Ошибка!</div>
+        </div>
+        <div class="wrapper-input" style="grid-column: span 4">
+          <input class="wrapper-input__input" type="text" placeholder="Текст" name="lastname">
+          <div class="wrapper-input__error">Ошибка!</div>
+        </div>
+        <div class="wrapper-input" style="grid-column: span 4">
+          <div class="wrapper-input__label">Введите текст</div>
+          <input class="wrapper-input__input" type="text" placeholder="Текст" name="patronymic">
+        </div>
+      </div>
+      <!-- BUTTONS --> 
+      <div class="grid__full-column">
+        <div class="test-title">Buttons</div>
+      </div>   
+      <div class="grid__wrapper">
+        <div class="wrapper-btn" style="grid-column: span 3;">
+          <a href="#" class="btn">Кнопочка</a>
+        </div>
+        <div class="wrapper-btn" style="grid-column: span 3;">
+          <button type="button" class="btn">Кнопочка</button>
+        </div> 
+        <div class="wrapper-btn" style="grid-column: span 3;">
+          <div class="btn">Кнопочка</div>
+        </div> 
+        <div class="wrapper-btn" style="grid-column: span 3;">
+          <a href="#" class="btn btn--nobg">Кнопочка</a>
+        </div>                        
+      </div> 
+      <!-- TEXTAREA --> 
+      <div class="grid__full-column">
+        <div class="test-title">Textarea</div>
+      </div>
+      <div class="grid__wrapper">
+        <div class="wrapper-textarea" style="grid-column: span 6;">
+          <div class="wrapper-textarea__label">Напиши коммент</div>
+          <textarea class="wrapper-textarea__textarea" name="textarea">Какой то текст</textarea>
+        </div>
+      </div>  
+      <!-- ANCHORS AND LINKS: Active --> 
+      <div class="grid__full-column">
+        <div class="test-title">Anchors and LinksActive</div>
+        <style>
+          .testanchor.active {
+            color: green;
+          }
+        </style>
+        <a class="testanchor" href="#link1">Якорь - Grid</a>
+        <a class="testanchor" href="#link2">Якорь - Radioes</a>
+        <a class="testanchor" href="#link3">Якорь - Inputs</a>
+        <a class="testanchor" href="&/exampleAnchor.html/#jaja">Ссылка на другую страницу + Якорь</a>
+        <a href="#" data-open-modal="test">Open modal</a>
+        <a href="#" data-open-modal="teste">Open modal</a>
+      </div>  
+      <!-- SLIDER: SWIPER -->  
+      <div class="grid__full-column">
+        <div class="test-title">Slider: swiper</div>
+      </div>
+      <style>
+        .slide-content {
+          max-width: 100%;
+          height: 200px;
+          border: 2px solid black;
+        }
+      </style>
+      <div class="grid__wrapper">
+        <div class="swiper swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="slide-content">Slide 1</div></div>
+            <div class="swiper-slide"><div class="slide-content">Slide 2</div></div>
+            <div class="swiper-slide"><div class="slide-content">Slide 3</div></div>
+          </div>
+          <div class="swiper-pagination"></div>   
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>     
+      </div>  
+      <!-- ACCORDION -->  
+      <div class="grid__full-column">
+        <div class="test-title">Accordion</div>
+      </div>
+      <div class="grid__wrapper">
+        <div class="accordion" style="grid-column: span 12;">
+          <div class="ac">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Lorem ipsum dolor sit amet.</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="ac">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Lorem ipsum dolor sit amet.</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="ac">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Lorem ipsum dolor sit amet.</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>    
+      </div> 
+      <!-- TABS -->  
+      <div class="grid__full-column">
+        <div class="test-title">Tabs</div>
+      </div>
+      <div class="grid__wrapper">
+        <div class="tabs" style="grid-column: span 12;">
+          <div class="tabs__nav">
+            <button class="tabs__btn tabs__btn--active" style="font-size: 18px;">Вкладка 1</button>
+            <button class="tabs__btn" style="font-size: 18px;">Вкладка 2</button>
+            <button class="tabs__btn" style="font-size: 18px;">Вкладка 3</button>
+          </div>
+          <div class="tabs__content">
+            <div class="tabs__pane tabs__pane--show" style="font-size: 18px;">
+              Содержимое 1...
+            </div>
+            <div class="tabs__pane" style="font-size: 18px;">
+              Содержимое 2...
+            </div>
+            <div class="tabs__pane" id="content-3" style="font-size: 18px;">
+              Содержимое 3...
+            </div>
+          </div>
+        </div>   
+      </div>              
+    </div>
+  </div>
+  <div data-form="form">
+    <form action="">
+      <input type="hidden" value="test">
+      <button type="submit" data-submit="submit">Отправить</button>
+    </form>
+  </div>
+  <!-- FIXED ELEMENTS -->
+  <style>
+    .circle {
+      display: block;
+      cursor: pointer;
+      width: 120px;
+      height: 120px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .circle.fixed {
+      position: fixed;
+    }
+  </style>
+  <div class="circle"></div>
+
+  @@include('html/footer.html', {})

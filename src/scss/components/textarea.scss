@@ -1,0 +1,53 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.wrapper-textarea {
+  $self: &;
+
+  $textareaBackground: #000;
+  $textareaBorder: unset;
+  $textareaTextColor: #fff;
+  $textareaLabelColor: #000;
+  $textareaErrorColor: red;
+
+  $textareaBackgroundHover: #fff;
+  $textareaBorderHover: 1px solid #000;
+  $textareaTextColorHover: #000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+
+  &__label {
+    @include setText(16px, 24px, 700);
+    color: $textareaLabelColor;
+    margin-bottom: 16px;
+  }
+
+  &__textarea {
+    @include transition-colors;
+    @include setText(16px, 24px, 400);
+    max-width: 100%;
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+    background-color: $textareaBackground;
+    color: $textareaTextColor;
+    padding: 16px;
+    border-radius: 4px;
+    border: $textareaBorder;
+
+    &:hover,
+    &:focus {
+      background-color: $textareaBackgroundHover;
+      border: $textareaBorderHover;
+      color: $textareaTextColorHover;
+
+      &::placeholder {
+        color: $textareaTextColorHover;
+      }
+    }
+  }
+}

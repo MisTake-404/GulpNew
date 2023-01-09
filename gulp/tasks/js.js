@@ -1,0 +1,31 @@
+import webpack from 'webpack-stream';
+
+const js = () => {
+  return app.gulp.src(app.path.src.js, { sourcemaps: app.isDev })
+    .pipe(app.plugins.plumber(
+      app.plugins.notify.onError({
+        title: 'JS',
+        message: 'Error: <%= error.message %>'
+      })
+    ))
+    .pipe(webpack({
+      mode: app.isBuild ? 'production' : 'development', 
+      devtool: app.isDev ? 'eval-source-map' : false,
+      output: {
+        filename: app.path.buildFileNameJs
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: '/node_modules/'
+          }
+        ]
+      },     
+    }))
+    .pipe(app.gulp.dest(app.path.build.js))
+    .pipe(app.plugins.browsersync.stream());
+};
+
+export default js;

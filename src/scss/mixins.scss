@@ -1,0 +1,304 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- Mixins Files ---------------------------------
+//  ------------------------------------------------------------------------------
+
+/* 
+  @include Layout((( 'large',
+    (
+      font-size: 24,
+      line-height: 32,
+      margin-left: 19
+    )),
+  )); 
+*/
+
+/* Резиновая верстка (авторасчет vw) */
+@mixin Layout($params) {
+  @each $media, $arrays in $params {
+
+    @if $media == default {
+      @each $key, $value in $arrays {
+        $count: math.div($adaptiveDefault, 100);
+        #{$key}: math.div($value, $count) + vw;
+      }
+    } 
+    @else if $media == 'desktop' {
+      @each $key, $value in $arrays {
+        $count: math.div($adaptiveDefault, 100);
+        #{$key}: math.div($value, $count) + vw;
+      }
+
+      @media (max-width: #{$adaptiveDesktop}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveUltraLarge, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    
+      @media (max-width: #{$adaptiveUltraLarge}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveLarge, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    } @else if $media == 'large' {
+      @media (max-width: #{$adaptiveLarge}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveMedium, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    } @else if $media == 'mobile' {
+      @media (max-width: #{$adaptiveMedium}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveSmall, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    } @else if $media == 'all' {
+      @each $key, $value in $arrays {
+        $count: math.div($adaptiveDefault, 100);
+        #{$key}: math.div($value, $count) + vw;
+      }
+
+      @media (max-width: #{$adaptiveDesktop}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveUltraLarge, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    
+      @media (max-width: #{$adaptiveUltraLarge}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveLarge, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+
+      @media (max-width: #{$adaptiveLarge}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveMedium, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+
+      @media (max-width: #{$adaptiveMedium}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($adaptiveSmall, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    } @else {
+      @media (max-width: #{$media}px) {
+        @each $key, $value in $arrays {
+          $count: math.div($media, 100);
+          #{$key}: math.div($value, $count) + vw;
+        }
+      }
+    }
+    
+  }
+
+  @content;
+}
+
+/*
+  @include Layout-boxshadow(0, -5, 15, rgba(#000, .25), all);
+*/
+
+/* Адаптивный box-shadow */
+@mixin Layout-boxshadow($x, $y, $light, $color, $type: all) {
+  @if $type == desktop {
+    $count: math.div($adaptiveDefault, 100);
+    $valueX: math.div($x, $count);
+    $valueY: math.div($y, $count);
+    $valueLight: math.div($light, $count);  
+
+    box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+
+    @media (max-width: #{$adaptiveDesktop}px) {
+      $count: math.div($adaptiveUltraLarge, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+  
+    @media (max-width: #{$adaptiveUltraLarge}px) {
+      $count: math.div($adaptiveLarge, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+  } @else if $type == large {
+    @media (max-width: #{$adaptiveLarge}px) {
+      $count: math.div($adaptiveMedium, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+
+    @media (max-width: #{$adaptiveMedium}px) {
+      $count: math.div($adaptiveSmall, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+  } @else if $type == mobile {
+    @media (max-width: #{$adaptiveMedium}px) {
+      $count: math.div($adaptiveSmall, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+  } @else if $type == all {
+    $count: math.div($adaptiveDefault, 100);
+    $valueX: math.div($x, $count);
+    $valueY: math.div($y, $count);
+    $valueLight: math.div($light, $count);  
+
+    box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+
+    @media (max-width: #{$adaptiveDesktop}px) {
+      $count: math.div($adaptiveUltraLarge, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+  
+    @media (max-width: #{$adaptiveUltraLarge}px) {
+      $count: math.div($adaptiveLarge, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+
+    @media (max-width: #{$adaptiveLarge}px) {
+      $count: math.div($adaptiveMedium, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+
+    @media (max-width: #{$adaptiveMedium}px) {
+      $count: math.div($adaptiveSmall, 100);
+      $valueX: math.div($x, $count);
+      $valueY: math.div($y, $count);
+      $valueLight: math.div($light, $count);  
+  
+      box-shadow: $valueX + vw $valueY + vw $valueLight + vw $color;
+    }
+  }
+}
+
+/*
+  @include adaptive(
+    (
+      (
+        1440px,
+        (
+          font-size: 24px,
+          line-height: 32px
+        )
+      ),
+      (
+        992px,
+        (
+          font-size: 24px,
+          line-height: 32px
+        )
+      )
+    )
+  );
+*/
+
+/* Адаптивность */
+@mixin adaptive($params) {
+  @each $media, $arrays in $params {
+    @if $media == 'default' {
+      @each $key, $value in $arrays {
+        #{$key}: #{$value};
+      }
+    } @else {
+      @media (max-width: #{$media}) {
+        @each $key, $value in $arrays {
+          #{$key}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition-colors {
+  transition-property: background-color, color, box-shadow, border-color;
+  transition-timing-function: linear;
+  transition-duration: $timeTrans; 
+}
+
+@mixin fix-height {
+  height: intrinsic;  
+  height: -moz-max-content;
+  height: -webkit-max-content;  
+}
+
+@mixin fix-width {
+  width: intrinsic;  
+  width: -moz-max-content;
+  width: -webkit-max-content;  
+}
+
+@mixin background-rules {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+/* Подключение шрифта вручную */
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+  font-family: $font_name;
+  font-display: swap;
+  src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+  font-weight: #{$weight};
+  font-style: #{$style};
+  }
+}
+
+/* Работа с типографией */
+@mixin setText($fontSize, $lineHeight, $fontWeight, $fontFamily: $mainFamily) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  font-family: $mainFamily;
+}
+
+/* Удобная Сетка */
+@mixin setGrid($columns, $rows, $rowsValue, $columnGap, $rowGap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-template-rows: repeat($rows, $rowsValue);
+  column-gap: $columnGap;
+  row-gap: $rowGap;
+  position: relative;
+}

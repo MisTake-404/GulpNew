@@ -1,0 +1,88 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+
+.wrapper-checkbox {
+  $self: &;
+  $checkboxColor: #aeadae;
+  $checkboxColorEffect: green;
+  $checkboxDisabled: #cbcbcc;
+  $textColor: red;
+
+  position: relative;  
+
+  &__checkbox + &__label::before {
+    @include transition-colors;
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 2px solid $checkboxColor;
+    margin-right: 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox:not(:disabled):not(:checked) + &__label:hover::before {
+    border-color: $checkboxColorEffect;
+  }
+
+  &__checkbox:not(:disabled):active + &__label::before {
+    background-color: $checkboxColorEffect;
+    border-color: $checkboxColorEffect;
+  }
+
+  &__checkbox:focus + &__label::before {
+    box-shadow: 0 0 0 0.2rem rgba(62, 41, 227, 0.25);
+  }
+
+  &__checkbox:focus:not(:checked) + &__label::before {
+    border-color: $checkboxColorEffect;
+  }
+
+  &__checkbox:checked + &__label::before {
+    border-color: $checkboxColorEffect;
+    background-color: $checkboxColorEffect;
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.15789 7.14286L12.5263 0L14 1.42857L5.15789 10L0 5L1.47368 3.57143L5.15789 7.14286Z' fill='white'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 14px;
+  }
+
+  &__checkbox:disabled + &__label::before {
+    background-color: $checkboxColorEffect;
+  }
+
+  &__label {
+    @include setText(16px, 24px, 400);
+    color: $textColor;
+  }
+
+  &__checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox + &__label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

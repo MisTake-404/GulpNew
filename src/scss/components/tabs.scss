@@ -1,0 +1,53 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.tabs {
+  border: 1px solid #e0e0e0;
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    background: #fafafa;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  &__btn {
+    @include transition-colors;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    flex-shrink: 0;
+    flex-grow: 1;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &--active {
+      background: #e0e0e0;
+      cursor: default;      
+    }
+  }
+  
+  &__btn:not(.tabs__btn--active):hover,
+  &__btn:not(.tabs__btn--active):focus {
+    background-color: #eee;
+  }
+  
+  &__content {
+    padding: 1rem;
+  }
+  
+  &__pane {
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: $timeTrans;     
+
+    &--show {
+      opacity: 1;
+    }
+  }
+}

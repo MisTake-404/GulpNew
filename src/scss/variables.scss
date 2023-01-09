@@ -1,0 +1,47 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- Variables Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+
+// Цвета
+$mainRed: #DF0D0E;
+$mainYellow: #FFA101;
+$mainOrange: #FF7701;
+$mainGray: #565656;
+$mainText: #000;
+$mainBackground: #fff;
+
+// Цвета - preloader
+$loaderColor: #DF0D0E;
+
+// Шрифт
+$mainFamily: HelveticaNeueCyr;
+
+// Анимации
+$timeTrans: .3s;
+
+// BREAKPOINTS
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+$breakpoint-xsm: 320px;
+$breakpoint-alternative-xsm: 300px;
+
+// Grid
+$wrapperWidth: 1230px;
+$wrapperWidth_xl: 1230px;
+$wrapperWidth_lg: 930px;
+$wrapperWidth_md: 690px;
+$wrapperWidth_sm: 510px;
+$wrapperWidth_xsm: unset;
+
+$gridColumns: 12;
+$gridColumns_xl: 12;
+$gridColumns_lg: 12;
+$gridColumns_md: 12;
+$gridColumns_sm: 6;
+$gridColumns_xsm: 2;
+
+$gridGap: 30px;
+

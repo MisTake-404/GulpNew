@@ -1,0 +1,116 @@
+//  ------------------------------------------------------------------------------
+//  ----------------------------- CSS Components Files ------------------------------
+//  ------------------------------------------------------------------------------
+
+.grid-layout {
+  @include flex-center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
+  margin: 0 auto;
+  top: 0;
+
+  @media (max-width: $breakpoint-xl) {
+    &__ctr {
+      max-width: $wrapperWidth_xl;
+    }
+
+    &__wrapper {
+      grid-template-columns: repeat($gridColumns_xl, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    &__ctr {
+      max-width: $wrapperWidth_lg;
+    }
+
+    &__wrapper {
+      grid-template-columns: repeat($gridColumns_lg, minmax(0, 1fr));
+    }
+  }  
+
+  @media (max-width: $breakpoint-md) {
+    &__ctr {
+      max-width: $wrapperWidth_md;
+    }
+
+    &__wrapper {
+      grid-template-columns: repeat($gridColumns_md, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__ctr {
+      max-width: $wrapperWidth_sm;
+    }
+
+    &__wrapper {
+      grid-template-columns: repeat($gridColumns_sm, minmax(0, 1fr));
+    }
+  }  
+
+  @media (max-width: $breakpoint-xsm) {
+    &__ctr {
+      max-width: $wrapperWidth_xsm;
+    }
+
+    &__wrapper {
+      grid-template-columns: repeat($gridColumns_xsm, minmax(0, 1fr));
+    }
+  }
+
+  &__ctr {
+    max-width: $wrapperWidth;
+    width: calc(100% - $gridGap);
+    position: fixed;
+    margin: 0 calc($gridGap / -2);
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat($gridColumns, minmax(0, 1fr));
+    column-gap: $gridGap;
+    padding-left: calc($gridGap / 2);
+    padding-right: calc($gridGap / 2);
+  }
+
+  &__block {
+    height: 100vh;
+    background: green;
+    opacity: 0.2;
+    width: 100%;
+    max-width: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      &:nth-child(n + 99) {
+        display: none;
+      }
+    }    
+
+    @media (max-width: $breakpoint-xl) {
+      &:nth-child(n + 99) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      &:nth-child(n + 99) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      &:nth-child(n + 7) {
+        display: none;
+      }
+    }    
+
+    @media (max-width: $breakpoint-xsm) {
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+  }
+}
